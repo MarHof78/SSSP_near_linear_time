@@ -1,0 +1,4 @@
+# ninja log v5
+8	568	7278862483182710	CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/main.cpp.obj	fd452adb114245d1
+1	589	7278862483412666	CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/shortest_path_algorithm.cpp.obj	a0eb0228049c1ff8
+590	897	7278862486416249	SSSP_near_linear_time.exe	d092369e021573a1
