@@ -9,12 +9,9 @@
 
 class Graph {
 private:
-    int vertices;
-    std::list<int>* adjacencyList;
+    void shortest_path_algorithm();
 
 public:
-    Graph(int vertices);
-    void addEdge(int src, int dest);
-    void printGraph();
+
 };
 #endif //SSSP_NEAR_LINEAR_TIME_SHORTEST_PATH_ALGORITHM_H

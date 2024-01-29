@@ -1,24 +1,27 @@
-//
-// Created by Marcel on 23.01.2024.
-//
+#include <boost/lambda/lambda.hpp>
+#include <iostream>
+#include <iterator>
+#include <algorithm>
 
-#include "include/shortest_path_algorithm.h"
-Graph::Graph(int vertices) {
-    this->vertices = vertices;
-    adjacencyList = new std::list<int>[vertices];
-}
-
-void Graph::addEdge(int src, int dest) {
-    adjacencyList[src].push_back(dest);
-    adjacencyList[dest].push_back(src); // Uncomment this line if the graph is undirected
-}
-
-void Graph::printGraph() {
-    for (int i = 0; i < vertices; ++i) {
-        std::cout << "Adjacency list of vertex " << i << ": ";
-        for (const auto& neighbor : adjacencyList[i]) {
-            std::cout << neighbor << " ";
-        }
-        std::cout << std::endl;
+int main()
+{
+    using namespace boost::lambda;
+    typedef std::istream_iterator<int> in;
+    typedef std::pair<int,int> Pair;
+    Pair edge_array[11] = { Pair(0,1), Pair(0,2), Pair(0,3),
+                          Pair(0,4), Pair(2,0), Pair(3,0),
+                          Pair(2,4), Pair(3,1), Pair(3,4),
+                          Pair(4,0), Pair(4,1) };
+    std::cout << "before for each shit" << "\n";
+    MyGraphType G(5);
+    for (int i = 0; i < 11; ++i){
+        add_edge(edge_array[i].first, edge_array[i].second, G);
     }
+
+    std::cout << "after for each shit" << "\n";
+    return 0;
+}
+
+void shortest_path_algorithm(){
+
 }
