@@ -1,27 +1,34 @@
-#include <boost/lambda/lambda.hpp>
+#include <boost/graph/adjacency_list.hpp>
 #include <iostream>
-#include <iterator>
-#include <algorithm>
+
+typedef boost::property<boost::edge_weight_t, int> EdgeWeightProperty;
+typedef boost::adjacency_list<boost::listS, boost::vecS,boost::undirectedS,boost::no_property,EdgeWeightProperty> UndirectedGraph;
+typedef boost::graph_traits<UndirectedGraph>::edge_iterator edge_iterator;
 
 int main()
 {
-    using namespace boost::lambda;
-    typedef std::istream_iterator<int> in;
-    typedef std::pair<int,int> Pair;
-    Pair edge_array[11] = { Pair(0,1), Pair(0,2), Pair(0,3),
-                          Pair(0,4), Pair(2,0), Pair(3,0),
-                          Pair(2,4), Pair(3,1), Pair(3,4),
-                          Pair(4,0), Pair(4,1) };
-    std::cout << "before for each shit" << "\n";
-    MyGraphType G(5);
-    for (int i = 0; i < 11; ++i){
-        add_edge(edge_array[i].first, edge_array[i].second, G);
+    UndirectedGraph g;
+
+    boost::add_edge (0, 1, 8, g);
+    boost::add_edge (0, 3, 18, g);
+    boost::add_edge (1, 2, 20, g);
+    boost::add_edge (2, 3, 2, g);
+    boost::add_edge (1, 3, 7, g);
+    boost::add_edge (1, 4, 1, g);
+    boost::add_edge (4, 5, 6, g);
+    boost::add_edge (2, 5, 7, g);
+
+    std::pair<edge_iterator, edge_iterator> ei = edges(g);
+
+    std::cout << "Number of edges = " << num_edges(g) << "\n";
+    std::cout << "Edge list:\n";
+
+    for (edge_iterator it = ei.first; it != ei.second; ++it )
+    {
+        std::cout << *it << std::endl;
     }
 
-    std::cout << "after for each shit" << "\n";
+    std::cout << std::endl;
+
     return 0;
-}
-
-void shortest_path_algorithm(){
-
 }
