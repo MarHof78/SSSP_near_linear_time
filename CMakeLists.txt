@@ -10,4 +10,5 @@ include_directories(shortest_path_linear_time_algorithm/include)
 add_executable(SSSP_near_linear_time
         shortest_path_linear_time_algorithm/include/shortest_path_algorithm.h
         #shortest_path_linear_time_algorithm/shortest_path_algorithm.cpp
-        shortest_path_linear_time_algorithm/djkstra.cpp)
+        #shortest_path_linear_time_algorithm/djkstra.cpp
+        shortest_path_linear_time_algorithm/bellmann_ford.cpp)

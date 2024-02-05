@@ -137,7 +137,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "shortest_path_linear_time_algorithm/djkstra.cpp",
+			"path" : "shortest_path_linear_time_algorithm/bellmann_ford.cpp",
 			"sourceGroupIndex" : 1
 		}
 	],

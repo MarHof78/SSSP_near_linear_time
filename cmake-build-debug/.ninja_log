@@ -1,6 +1,7 @@
 # ninja log v5
 26	1520	7282287079819277	CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/main.cpp.obj	71ab24fe2bbb4de7
 40	7105	7284929996392404	CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/shortest_path_algorithm.cpp.obj	43fcd9ca97c96ffa
-7123	7757	7284930002789392	SSSP_near_linear_time.exe	692380ddf1a8880e
-32	7582	7284931998030005	CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/djkstra.cpp.obj	db18e8c6351a7d31
 20	544	7284933170625262	SSSP_near_linear_time.exe	646d585b2edfb22c
+32	7582	7284931998030005	CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/djkstra.cpp.obj	db18e8c6351a7d31
+1	8445	7288401215811541	CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/bellmann_ford.cpp.obj	8246be2c43be192b
+8468	9679	7288401228165233	SSSP_near_linear_time.exe	669dd8b8cd1fc080
