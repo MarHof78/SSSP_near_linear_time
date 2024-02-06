@@ -56,6 +56,13 @@ build CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/m
   OBJECT_DIR = CMakeFiles\SSSP_near_linear_time.dir
   OBJECT_FILE_DIR = CMakeFiles\SSSP_near_linear_time.dir\shortest_path_linear_time_algorithm
 
+build CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/djkstra.cpp.obj: CXX_COMPILER__SSSP_near_linear_time_Debug C$:/Users/Marcel/CLionProjects/SSSP_near_linear_time/shortest_path_linear_time_algorithm/djkstra.cpp || cmake_object_order_depends_target_SSSP_near_linear_time
+  DEP_FILE = CMakeFiles\SSSP_near_linear_time.dir\shortest_path_linear_time_algorithm\djkstra.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -IC:/Users/Marcel/Downloads/boost_1_66_0/boost_1_66_0 -IC:/Users/Marcel/CLionProjects/SSSP_near_linear_time/shortest_path_linear_time_algorithm/include
+  OBJECT_DIR = CMakeFiles\SSSP_near_linear_time.dir
+  OBJECT_FILE_DIR = CMakeFiles\SSSP_near_linear_time.dir\shortest_path_linear_time_algorithm
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target SSSP_near_linear_time
@@ -64,7 +71,7 @@ build CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/m
 #############################################
 # Link the executable SSSP_near_linear_time.exe
 
-build SSSP_near_linear_time.exe: CXX_EXECUTABLE_LINKER__SSSP_near_linear_time_Debug CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/main.cpp.obj
+build SSSP_near_linear_time.exe: CXX_EXECUTABLE_LINKER__SSSP_near_linear_time_Debug CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/main.cpp.obj CMakeFiles/SSSP_near_linear_time.dir/shortest_path_linear_time_algorithm/djkstra.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\SSSP_near_linear_time.dir

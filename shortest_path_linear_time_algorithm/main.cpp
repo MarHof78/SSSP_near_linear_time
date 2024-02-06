@@ -1,35 +1,45 @@
-#include <boost/graph/adjacency_list.hpp>
-#include <iostream>
 
-typedef boost::property<boost::edge_weight_t, int> EdgeWeightProperty;
-typedef boost::adjacency_list<boost::listS, boost::vecS,boost::undirectedS,boost::no_property,EdgeWeightProperty> UndirectedGraph;
-typedef boost::graph_traits<UndirectedGraph>::edge_iterator edge_iterator;
+#include <iostream>
+#include "djkstra.h"
+
+typedef boost::adjacency_list <boost::listS, boost::vecS, boost::directedS, boost::no_property,
+        boost::property<boost::edge_weight_t, int> > graph_t;
+typedef boost::graph_traits<graph_t>::vertex_descriptor vertex_descriptor;
+typedef std::pair<int, int> Edge;
 
 int main()
 {
 // define the graph and compute bellmann ford, djkstra and the new shortest_path_algorithm
-    UndirectedGraph g;
+    using namespace boost;
 
-    boost::add_edge (0, 1, 8, g);
-    boost::add_edge (0, 3, 18, g);
-    boost::add_edge (1, 2, 20, g);
-    boost::add_edge (2, 3, 2, g);
-    boost::add_edge (1, 3, 7, g);
-    boost::add_edge (1, 4, 1, g);
-    boost::add_edge (4, 5, 6, g);
-    boost::add_edge (2, 5, 7, g);
+    const int num_nodes = 5;
+    enum nodes { A, B, C, D, E };
+    char name[] = { 'A', 'B', 'C', 'D', 'E' };
+    //char name[] = "ABCDE";
+    Edge edge_array[] = { Edge(A, C), Edge(B, B), Edge(B, D), Edge(B, E),
+                          Edge(C, B), Edge(C, D), Edge(D, E), Edge(E, A), Edge(E, B)
+    };
 
-    std::pair<edge_iterator, edge_iterator> ei = edges(g);
+    int weights[] = { 1, 2, 1, 2, 7, 3, 1, 1, 1 };
+    int num_arcs = sizeof(edge_array) / sizeof(Edge);
 
-    std::cout << "Number of edges = " << num_edges(g) << "\n";
-    std::cout << "Edge list:\n";
+    // Graph created from the list of edges
+    graph_t g(edge_array, edge_array + num_arcs, weights, num_nodes);
 
-    for (edge_iterator it = ei.first; it != ei.second; ++it )
-    {
-        std::cout << *it << std::endl;
-    }
+    // Create property_map from edges to weights
+    boost::property_map<graph_t, boost::edge_weight_t>::type weightmap = get(boost::edge_weight, g);
 
-    std::cout << std::endl;
+    // Create vectors to store the predecessors (p) and the distances from the root (d)
+    std::vector<vertex_descriptor> predecessor_map(num_vertices(g));
+    std::vector<int> distance_map(num_vertices(g));
+
+    // Create descriptor for the source node
+    vertex_descriptor source = vertex(A, g);
+    vertex_descriptor goal = vertex(E, g);
+
+    Djkstra test;
+    test.djkstra(g, source,goal, predecessor_map, distance_map, name);
 
     return 0;
 }
+

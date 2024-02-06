@@ -12,4 +12,6 @@ add_executable(SSSP_near_linear_time
         #shortest_path_linear_time_algorithm/djkstra.cpp
         #shortest_path_linear_time_algorithm/bellmann_ford.cpp
         shortest_path_linear_time_algorithm/main.cpp
+        shortest_path_linear_time_algorithm/djkstra.cpp
+        #shortest_path_linear_time_algorithm/bellmann_ford.cpp
         )
