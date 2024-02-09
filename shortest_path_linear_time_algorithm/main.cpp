@@ -1,6 +1,8 @@
 
 #include <iostream>
 #include "djkstra.h"
+#include "bellmann_ford.h"
+#include "shortest_path_algorithm.h"
 
 typedef boost::adjacency_list <boost::listS, boost::vecS, boost::directedS, boost::no_property,
         boost::property<boost::edge_weight_t, int> > graph_t;
@@ -13,7 +15,7 @@ int main()
     using namespace boost;
 
     const int num_nodes = 5;
-    enum nodes { A, B, C, D, E };
+    enum nodes { A, B, C, D, E ,N};
     char name[] = { 'A', 'B', 'C', 'D', 'E' };
     //char name[] = "ABCDE";
     Edge edge_array[] = { Edge(A, C), Edge(B, B), Edge(B, D), Edge(B, E),
@@ -24,7 +26,7 @@ int main()
     int num_arcs = sizeof(edge_array) / sizeof(Edge);
 
     // Graph created from the list of edges
-    graph_t g(edge_array, edge_array + num_arcs, weights, num_nodes);
+    graph_t g(edge_array, edge_array + num_arcs, weights, N);
 
     // Create property_map from edges to weights
     boost::property_map<graph_t, boost::edge_weight_t>::type weightmap = get(boost::edge_weight, g);
@@ -38,7 +40,13 @@ int main()
     vertex_descriptor goal = vertex(E, g);
 
     Djkstra test;
-    test.djkstra(g, source,goal, predecessor_map, distance_map, name);
+    test.djkstra(g, source, goal, predecessor_map, distance_map, name);
+
+    Bellmann_Ford test2;
+    test2.bellmann_ford(g, source, weightmap, name, num_nodes);
+
+    Shortest_path test3;
+    test3.shortest_path_algorithm(g, source, weightmap, name, num_nodes);
 
     return 0;
 }
